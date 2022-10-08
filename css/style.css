@@ -1,0 +1,12 @@
+*{
+    margin: 0;/*margem*/
+    padding: 0;/*espaçamento interno*/
+    font-size: 1em;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main_header{
+    width: 100%; /*largura*/
+    background-color: #2d3142;
+}
+
