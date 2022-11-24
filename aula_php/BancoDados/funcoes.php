@@ -1,9 +1,11 @@
 <?php
+//rafael.florindo@docente.pr.senac.br
     $titulo = $_POST["titulo"];
     $descricao = $_POST["descricao"];
-/*    $titulo = "Teste 3";
+/*  $titulo = "Teste 3";
     $descricao = "Teste descrição 3";
-  */  $dataCadastro = date("Y-m-d H:m:s");
+  */  
+    $dataCadastro = date("Y-m-d H:m:s");
 
     include("conexao.php");
     
@@ -16,13 +18,12 @@
         
         if($result){
             return $conectar->insert_id;
-            //return true;
         }else{
             return false;        
         }
     }
     
-  $resultado = inserir($titulo, $descricao, $dataCadastro, $conectar);
+  /*$resultado = inserir($titulo, $descricao, $dataCadastro, $conectar);
   
   if($resultado){
     echo "O projeto com $titulo, 
@@ -30,3 +31,20 @@
   }else{
     echo "O projeto $titulo não foi gravado";
   }
+  */
+  
+  function listarProjetos($conectar){
+    $sql = "SELECT * FROM projeto order by titulo ASC";
+
+    $retorno = $conectar->query($sql);
+
+    $projetos = array();//array vazio
+    
+    while($linha = $retorno->fetch_assoc()){
+      $projetos[]=$linha;
+    }
+    var_dump($projetos);
+    //return $projetos;
+  }
+
+  listarProjetos($conectar);
